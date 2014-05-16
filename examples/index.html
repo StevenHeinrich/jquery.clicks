@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+    <title>jQuery.Clicks</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <!-- Custom styles for this template -->
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="site-wrapper">
+      <div class="site-wrapper-inner">
+        <div class="cover-container">
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h3 class="masthead-brand">jQuery.Clicks</h3>
+              <ul class="nav masthead-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="inner cover">
+            <h1 class="cover-heading">Clean, Simple, Versatile</h1>
+            <p class="lead">This jQuery plugin is designed for simplicity, while allowing for advanced click combinations to provide maximum control ~ when needed.</p>
+          </div>
+          <div>
+            <p>
+              <button class="btn btn-lg btn-default left-click">Left-Click Me</button>
+            </p>
+            <p>
+              <button class="btn btn-lg btn-default right-click">Right-Click Me</button>
+            </p>
+            <p>
+              <button class="btn btn-lg btn-default middle-click">Middle-Click Me</button>
+            </p>
+            <p>
+              <button class="btn btn-lg btn-default double-click">Double-Click Me</button>
+            </p>
+            <p>
+              <button class="btn btn-lg btn-default alt-left-click">Alt+Left-Click Me</button>
+            </p>
+            <p>
+              <button class="btn btn-lg btn-default control-left-click">Control+Left-Click Me</button>
+            </p>
+            <p>
+              <button class="btn btn-lg btn-default shift-left-click">Shift+Left-Click Me</button>
+            </p>
+            <p>
+              <a href="https://github.com/GeoSteve/jquery.clicks" target="_blank"  class="btn btn-lg btn-default meta-left-click">Meta+Left-Click Me</a>
+            </p>
+            <p>
+              <a href="https://github.com/GeoSteve/jquery.clicks" target="_blank" class="btn btn-lg btn-default alt-shift-left-click">Alt+Shift+Left-Click Me</a>
+            </p>
+          </div>
+          <div class="mastfoot">
+            <div class="inner">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ============================================= -->
+    <!-- JavaScript placed at the end of the document so the pages load faster -->
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <!-- Load local copy of jquery.Clicks source code -->
+    <script src="../src/jquery.clicks.js"></script>
+
+    <script>
+        $( document ).ready(function() {
+
+            $('.left-click').clicks({
+                'mouseClick': 'left',
+                'preventDefault': true,
+                'callback': function(event) {
+                    console.log('My callback with left-click event:', event);
+                    alert('My callback with left-click event');
+                }
+            });
+
+            $('.right-click').clicks({
+                'mouseClick': 'right',
+                'preventDefault': true,
+                'callback': function(event) {
+                    console.log('My callback with right-click event:', event);
+                    alert('My callback with right-click event');
+                }
+            });
+
+            $('.middle-click').clicks({
+                'mouseClick': 'middle',
+                'preventDefault': true,
+                'callback': function(event) {
+                    console.log('My callback with middle-click event:', event);
+                    alert('My callback with middle-click event');
+                }
+            });
+
+            $('.double-click').clicks({
+                'mouseClick': 'double',
+                'preventDefault': true,
+                'callback': function(event) {
+                    console.log('My callback with double-click event:', event);
+                    alert('My callback with double-click event');
+                }
+            });
+
+            $('.shift-left-click').clicks({
+                'mouseClick': 'left',
+                'comboKeys': ['shift'],
+                'preventDefault': true,
+                'callback': function(event) {
+                    console.log('My callback with shift+left-click event:', event);
+                    alert('My callback with shift+left-click event');
+                }
+            });
+
+            $('.alt-left-click').clicks({
+                'mouseClick': 'left',
+                'comboKeys': ['alt'],
+                'preventDefault': true,
+                'callback': function(event) {
+                    console.log('My callback with alt+left-click event:', event);
+                    alert('My callback with alt+left-click event');
+                }
+            });
+
+            $('.control-left-click').clicks({
+                'mouseClick': 'left',
+                'comboKeys': ['control'],
+                'preventDefault': true,
+                'callback': function(event) {
+                    console.log('My callback with control+left-click event:', event);
+                    alert('My callback with control+left-click event');
+                }
+            });
+
+            $('.meta-left-click').clicks({
+                'mouseClick': 'left',
+                'comboKeys': ['meta'],
+                'preventDefault': true,
+                'callback': function(event) {
+                    console.log('My callback with meta+left-click event:', event);
+                    alert(
+                        'My callback with meta-left-click event. This event IS using preventDefault.' +
+                        'It will not open the URL in a new tab'
+                    );
+                }
+            });
+
+            $('.alt-shift-left-click').clicks({
+                'mouseClick': 'left',
+                'comboKeys': ['shift', 'alt'],
+                'callback': function(event) {
+                    console.log('My callback with shift+alt+left-click event:', event);
+                    alert(
+                        'My callback with shift+alt+left-click event. This event is NOT using preventDefault.' +
+                        ' It will continue on through the click path and open the URL an new tab.'
+                    );
+                }
+            });
+
+        });
+    </script>
+  </body>
+</html>

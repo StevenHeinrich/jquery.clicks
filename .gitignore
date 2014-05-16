@@ -1,0 +1,14 @@
+# System files
+*.DS_Store
+*[Tt]humbs.db
+*.Trashes
+
+# Logs
+logs
+*.log
+
+# Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
+.grunt
+
+# Node / Grunt
+node_modules
